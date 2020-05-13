@@ -27,8 +27,11 @@ server.get('/receitas', function(req, res){
 
 server.get("/receitas/:index", function(req, res){
     const recipeIndex = req.params.index;
-
-    return res.render('recipepage', {item: receitas[recipeIndex]})
+    if (receitas[recipeIndex] == undefined){
+        return res.render('not-found')
+    } else{
+        return res.render('recipepage', {item: receitas[recipeIndex]})
+        }   
 })
 
 server.use(function(req, res) {

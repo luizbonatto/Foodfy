@@ -1,11 +1,18 @@
 const recipe = document.querySelectorAll('.card-receitas');
 const recipe_sections = document.querySelectorAll(".recipe__section");
+const cardHome = document.querySelectorAll(".card-home")
 
 
 for (let i = 0; i < recipe.length; i++){
     recipe[i].addEventListener("click", function(){
     window.location.href = `/receitas/${i}`
     });
+}
+
+for (let i = 0; i < cardHome.length; i++){
+  cardHome [i].addEventListener('click', function(){
+    window.location.href = `receitas/${i}`
+  })
 }
 
 for (let recipe_section of recipe_sections) {
