@@ -1,4 +1,4 @@
-{% extends 'layout.njk' %}
+{% extends 'site/layout.njk' %}
 
 {% block head %}
         <title>Foodfy | Home</title>
@@ -23,10 +23,10 @@
     </div>
 
     <section class="cards-home">
-    {% for itens in item %}
+    {% for itens in item %}    
         <div class="card-home">
             <div class="card__home-image">
-                <img src="{{itens.image}}" alt="Hamburguer">
+                <img src="{{itens.image}}" alt="{{itens.title}}">
             </div>
             <div class="card__home-content">
                 <p>{{itens.title}}</p>
@@ -37,8 +37,6 @@
         </div>
     {% endfor %}
     </section>
-
-    <script src="/scripts/scripts.js"></script>
     
  {% endblock content %}
   
