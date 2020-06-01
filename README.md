@@ -46,7 +46,7 @@ npm install
 
 ## Meta
 
-Luiz Felipe Bonatto – [@YourTwitter](https://twitter.com/luiz_bonatto_) – luizfelipebonatto@hotmail.com
+Luiz Felipe Bonatto – [@luiz_bonatto_](https://twitter.com/luiz_bonatto_) – luizfelipebonatto@hotmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
