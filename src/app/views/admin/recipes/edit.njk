@@ -19,7 +19,7 @@
 
             <button type="submit">Salvar Receita</button>            
                
-            {% include 'admin/fields.njk'%}
+            {% include 'admin/recipes/fields.njk'%}
 
             <input type="hidden" name="id" value="{{recipe.id}}">
             
@@ -33,6 +33,8 @@
     deleteButton.addEventListener("click", function(event){
         const confirmation = confirm("Deseja realmente apagar a receita?")
         if(!confirmation) event.preventDefault()})
+
+        {% include "admin/recipes/addScript.njk" %}
 
     </script>
 

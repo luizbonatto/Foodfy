@@ -31,6 +31,12 @@ npm install
 
 ## Release History
 
+* 0.2.1
+    * CHANGE: Now the data is stored in the database
+    * ADD: New chefs menu
+    * ADD: New search tool 
+    * ADD: New admin area for chef management
+
 * 0.2.0
     * FIX: Footer Bugs
     * CHANGE: Changed routes and data file on the backend

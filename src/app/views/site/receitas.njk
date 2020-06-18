@@ -1,4 +1,4 @@
-{% extends 'site/layout.njk' %}
+{% extends 'site/layout2.njk' %}
 
 {% block head %}
     <title>Foodfy | Receitas</title>
@@ -6,16 +6,23 @@
 
 {% block content %}
     <section class="cards-receitas">
-{% for itens in item %}    
+{% for recipe in recipes %}
+    <a href="/receitas/{{recipe.id}}">
         <div class="card-receitas">
-            <img src="{{itens.image}}" alt="imagem de {{itens.title}}">
-            <p class="card-title">{{itens.title}}</p>
-            <p class="card-subtitle">{{itens.author}}</p>
+            <img src="{{recipe.image}}" alt="imagem de {{itens.title}}">
+            <p class="card-title">{{recipe.title}}</p>
+            <p class="card-subtitle">{{recipe.author}}</p>
                 </div>
             </div>
         </div>
+    </a>
  {% endfor %}
     </section>   
+
+    <div class="pagination"
+            data-page={{pagination.page}}
+            data-total={{pagination.total}}             
+        ></div>
     
 {% endblock content %}
 

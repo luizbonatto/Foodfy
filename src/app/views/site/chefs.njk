@@ -1,0 +1,30 @@
+{% extends 'site/layout.njk' %}
+
+{% block content %}
+
+<section class="admin__chef-cards">
+    {% for chef in chefs %}    
+    <div class="admin__chef-card">
+        <div class="admin__chef-card-image">    
+            <img src="{{chef.avatar_url}}" alt="Imagem de {{chef.name}}">
+        </div>            
+        <div class="admin__chef-card-content">  
+            <h1>{{chef.name}}</h1>
+            <p>{{chef.total_recipes}} {% if chef.total_recipes == 1 %} receita {%else%} receitas {% endif %}</p>
+        </div>
+    </div>
+    {% endfor %}    
+</section>
+
+{% endblock content %}
+
+{% block footer %}
+
+   <footer class="footer-block">
+       <div>
+           <p>Todos os direitos reservados, receitas Foodfy </p>
+       </div>
+   </footer>
+
+{% endblock footer %}
+

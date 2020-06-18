@@ -1,27 +1,27 @@
-{% extends 'site/layout.njk' %}
+{% extends 'site/layout2.njk' %}
 
 {% block head %}
-  <title>Foodfy | {{item.title}}</title>
+  <title>Foodfy | {{recipe.title}}</title>
 {% endblock head %}
 
 
 {% block content %}
   <div class="recipe-wrapper">
     <div class="recipe__image">
-      <img src="{{item.image}}" alt="{{item.title}}">
+      <img src="{{recipe.image}}" alt="{{recipe.title}}">
     </div>
 
     <div class="recipe__content">
-      <p class="recipe__title">{{item.title}}</p>
+      <p class="recipe__title">{{recipe.title}}</p>
       <p class="recipe__author">por
-        {{item.author}}</p>
+        {{recipe.author}}</p>
       <br>
       <div class="recipe__section">
         <p class="recipe__subtitle">Ingredientes<span class="recipe__expansion">ESCONDER</span></p>
         <div class="recipe__description">
           <ul>
-       {% for item in item.ingredients %}
-              <li>{{item}}</li>
+       {% for recipe in recipe.ingredients %}
+              <li> - {{recipe}}</li>
             {% endfor %}
           </ul>
         </div>
@@ -31,17 +31,17 @@
         <p class="recipe__subtitle">Modo de preparo<span class="recipe__expansion">ESCONDER</span></p>
         <div class="recipe__description">
           <ol>
-      {% for item in item.preparation %}
-              <li>{{item}}</li>
+      {% for recipe in recipe.preparation %}
+              <ul> - {{recipe}}</li>
             {% endfor %}
-          </ol>
+          </ul>
         </div>
 
       </div>
       <div class="recipe__section">
         <p class="recipe__subtitle">Informações adicionais<span class="recipe__expansion">ESCONDER</span></p>
         <div class="recipe__description">
-      <p>{{item.information}}</p>
+      <p>{{recipe.information}}</p>
         </div>
       </div>
     </div>

@@ -15,7 +15,16 @@
 <div>
     <h3>Chef</h3>
     <div>
-        <input type="text" name="author" value="{{recipe.author}}">
+        <select name="chef" required > 
+        <option value=""disabled  selected >
+            Selecione um chef
+        </option>        
+        {% for chef in chefs %}                 
+            <option value="{{chef.id}}"{% if recipe.chef_id == chef.id %} selected {% endif %}>
+                {{chef.name}}
+            </option>
+        {% endfor %}
+        </select>
     </div>
 </div>
 
@@ -25,12 +34,12 @@
         {%if recipe %}
             {% for ingredients in recipe.ingredients %}
                 <div class="ingredient">
-                    <input type="text" name="ingredients[]" value="{{ingredients}}"/>
+                    <input type="text" name="ingredients" value="{{ingredients}}"/>
                 </div>
             {% endfor %}
         {% else %}
             <div class="ingredient">
-                <input type="text" name="ingredients[]"/>
+                <input type="text" name="ingredients"/>
             </div>
         {% endif %}
     </div>
@@ -44,12 +53,12 @@
         {% if recipe %}
             {% for preparation in recipe.preparation %}
                 <div class="preparation">
-                    <input type="text" name="preparation[]" value="{{preparation}}"/>
+                    <input type="text" name="preparation" value="{{preparation}}"/>
                 </div>
             {% endfor %}
         {% else %}
             <div class="preparation">
-                <input type="text" name="preparation[]"/>
+                <input type="text" name="preparation"/>
             </div>
         {% endif %}
     </div>

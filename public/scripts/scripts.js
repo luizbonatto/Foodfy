@@ -1,9 +1,11 @@
 const recipe = document.querySelectorAll('.card-receitas');
 const recipe_sections = document.querySelectorAll(".recipe__section");
-const cardHome = document.querySelectorAll(".card-home")
 const currentPage = location.pathname
 const menuItem = document.querySelectorAll('header .navbar a')
+const menuAdmin = document.querySelectorAll('header .admin-navbar a')
 
+
+//Active Page Logic:
 
 for (item of menuItem){
   if (currentPage.includes(item.getAttribute('href'))){
@@ -11,17 +13,13 @@ for (item of menuItem){
   }
 }
 
-for (let i = 0; i < recipe.length; i++){
-    recipe[i].addEventListener("click", function(){
-    window.location.href = `/receitas/${i}`
-    });
+for (item of menuAdmin){
+  if (currentPage.includes(item.getAttribute('href'))){
+    item.classList.add('active_admin')
+  }
 }
 
-for (let i = 0; i < cardHome.length; i++){
-  cardHome [i].addEventListener('click', function(){
-    window.location.href = `receitas/${i}`
-  })
-}
+//Expand Recipes Logic
 
 for (let recipe_section of recipe_sections) {
     const section = recipe_section.querySelector(".recipe__description");
@@ -40,42 +38,63 @@ for (let recipe_section of recipe_sections) {
       });
   }
 
-const addIngredientButton = document.querySelector('.add-ingredient')
-const addPreparationButton = document.querySelector('.add-preparation')
+//Pagination Logic
 
+function paginate(selectedPage, totalPages) {
 
-if(addIngredientButton || addPreparationButton){
-  addIngredientButton.addEventListener("click", addIngredient)
-  addPreparationButton.addEventListener('click', addPreparation)
+  let pages = [],
+      oldPage
+
+  for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
+
+      const firstAndLastPage = currentPage == 1 || currentPage == totalPages
+      const pagesAfterSelectedPage = currentPage <= selectedPage + 2
+      const pagesBeforeSelectedPage = currentPage >= selectedPage - 2
+
+      if (firstAndLastPage || pagesBeforeSelectedPage && pagesAfterSelectedPage) {
+          if (oldPage && currentPage - oldPage > 2) {
+              pages.push("...")
+          }
+
+          if (oldPage && currentPage - oldPage == 2) {
+              pages.push(oldPage + 1)
+          }
+
+          pages.push(currentPage)
+
+          oldPage = currentPage
+      }
+  }
+
+  return pages
 }
 
+function createPagination (pagination)  {
+  const page = +pagination.dataset.page;
+  const total = +pagination.dataset.total;  
+  const pages = paginate(page, total)
 
-function addIngredient() {
-  const ingredients = document.querySelector("#ingredients");
-  const fieldContainer = document.querySelectorAll(".ingredient");
+  let elements = ''
 
-  // Realiza um clone do último ingrediente adicionado
-  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
-
-  // Não adiciona um novo input se o último tem um valor vazio
-  if (newField.children[0].value == "") return false;
-
-  // Deixa o valor do input vazio
-  newField.children[0].value = "";
-  ingredients.appendChild(newField);
+  for(let page of pages){
+      if(String(page).includes("...")){
+          elements += `<span>${page}</span>`
+      } else{
+          elements += `<a href="?page=${page}">${page}</a>`
+          }
+              
+      }  
+  
+  pagination.innerHTML = elements
 }
 
-function addPreparation() {
-  const preparations = document.querySelector("#preparations");
-  const fieldContainer = document.querySelectorAll(".preparation");
+const pagination = document.querySelector(".pagination")
 
-  // Realiza um clone do último ingrediente adicionado
-  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+if(pagination){
+  createPagination(pagination)
+} 
 
-  // Não adiciona um novo input se o último tem um valor vazio
-  if (newField.children[0].value == "") return false;
 
-  // Deixa o valor do input vazio
-  newField.children[0].value = "";
-  preparations.appendChild(newField);
-}
+
+
+   

@@ -1,0 +1,341 @@
+ /* == ADMIN HEADER */
+
+ .admin-header{
+    background-color: #111111;
+    width: 100%;
+    padding: 27px;
+    box-sizing: border-box;  
+    margin: 0;
+    display: flex    
+}
+
+.admin-navbar{
+    width: 940px;   
+    display: flex;
+    margin: 0 auto;    
+    align-items: center;       
+}
+
+.admin-navbar a:first-child{
+    margin: 0;
+    margin-right: 51px;      
+}
+
+.admin-navbar a{
+    font-size: 15px;
+    font-weight: bold;
+    color: #999999;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 30px;   
+}
+
+.admin-navbar a:hover{
+    color: white;
+    transition: 200ms;
+}
+
+.active_admin{
+    color: white !important; 
+}
+
+/* == RECIPES ADMIN == */
+
+.admin-recipes{
+    max-width: 940px;    
+    margin: 50px auto;          
+}
+
+.admin-recipes-title{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;     
+}
+
+.chefs__header-title a,
+.admin-recipes-title a{
+    padding: 9px 20px;
+    background-color: #6558c3;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+}
+
+.admin-recipes-title h1{
+    font-weight: bold;
+    font-size: 24px;
+    color: #111111    
+}
+
+.admin__recipes-cards{
+    width: 940px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+       
+}
+
+.admin__recipe-card{
+    display: grid;
+    grid-template-columns: 192px 1fr;
+}
+
+.admin__image-card img{
+    width: 172px;
+    height: 80px;
+    border-radius: 8.57px;
+    object-fit: cover;
+}
+
+.admin__content-card h1{
+    font-weight: normal;
+    font-size: 18px;
+    color: #111111;
+}
+
+.admin__content-card p{
+    font-size: 14px;
+    color: #777777;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.admin__content-card a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: #6558c3;      
+}
+
+/* == ADMIN SHOW RECIPE == */
+
+.admin__show-title{
+    max-width: 940px;
+    margin: 55px auto 24px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;    
+}
+
+.admin__show-title h2{
+    font-size: 24px;
+    color: #111111;     
+}
+
+.admin__show-title a{
+    padding: 9px 20px;
+    background-color: #6558C3;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    right: 0;    
+}
+
+.admin__show-image{
+    margin: 0 auto;
+    max-width: 940px;
+    max-height: 280px;    
+    
+}
+
+.admin__show-image img{    
+    border-radius: 15px;
+    width: 940px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.recipe-wrapper-admin{
+  max-width: 940px;
+  margin: 0 auto 51px auto;
+}
+
+
+/* == ADMIN FORM RECIPES == */
+
+.admin__create-form{
+    max-width: 940px;
+    margin: 55px auto;
+    position: relative;
+    align-items: center;
+}
+
+.admin__create-form h2, button[type = "submit"]{
+    display: flex;
+}
+
+.admin__create-form button[type = "submit"]{
+    position: absolute;
+    right: -40px;
+    font-family: 'Roboto';
+    font-size: 16px;
+    padding: 9px 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #6558C3;
+    border-radius: 4px;
+    align-items: center;
+    top: 0px;
+}
+
+.admin__create-form h2{
+    font-size: 24px;    
+}
+
+.admin__create-form h3 {
+    margin-top: 30px;    
+    font-weight: bold;
+    font-size: 16px;
+}
+.admin__create-form select,
+.admin__create-form input{
+    width: 940px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-family: 'roboto';
+    margin-top: 10px;
+}
+
+.admin__create-form select{     
+    width: 982px;    
+}
+
+.admin__create-form select:invalid{
+    color:#999999;
+}
+
+.add-information textarea{
+    height: 257px;
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-family: 'roboto';
+}
+
+
+.admin__create-form button[type = "button"]{
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #6558C3;
+    background-color: white;
+    cursor: pointer;
+}
+
+#admin__delete-button{
+    right: 115px;
+    top: 0;
+    background-color: #DC4747;
+}
+
+#admin__delete-button-chef{
+    right: 95px;
+    top: 0;
+    background-color: #DC4747;
+}
+
+/* == CHEFS SHOW == */
+
+.chefs__header-title{
+    max-width: 940px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    position: relative;
+}
+
+.chefs__header-title h2{
+    font-size: 24px;
+    font-weight: bold;
+    color: #111111;
+}
+
+.admin__chef-cards{
+    max-width: 940px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;    
+}
+
+.admin__chef-card{
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+.admin__chef-card-image img{
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.admin__chef-card-content h1{
+    font-size: 18px;
+    font-weight: normal;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.admin__chef-card-content a{
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    color: #6558C3;
+}
+
+/* CHEFS PAGE */
+
+.chef__show-image{
+    margin: 51px auto 30px auto;
+    max-width: 940px;
+    text-align: center;
+}
+
+.chef__show-image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;      
+}
+
+.chef__show-title{
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.chef__show-title h2{
+    font-size: 36px;
+    margin-bottom: 4px;
+}
+
+.chef__show-title p{
+    font-size: 20px;
+    color: #777777;
+
+}
+
+.chef__show-recipesection-title{
+    max-width: 940px;
+    margin: 50px auto 30px auto;
+}
+
+.chef__show-recipesection-title h1{
+    font-size: 24px;
+}

@@ -1,4 +1,4 @@
-{% extends 'site/layout.njk' %}
+{% extends 'site/layout2.njk' %}
 
 {% block head %}
         <title>Foodfy | Home</title>
@@ -23,18 +23,20 @@
     </div>
 
     <section class="cards-home">
-    {% for itens in item %}    
-        <div class="card-home">
+    {% for recipe in recipes %}    
+        <a href="/receitas/{{recipe.id}}">
+            <div class="card-home">
             <div class="card__home-image">
-                <img src="{{itens.image}}" alt="{{itens.title}}">
+               <img src="{{recipe.image}}" alt="{{recipe.title}}">
             </div>
             <div class="card__home-content">
-                <p>{{itens.title}}</p>
+                <p>{{recipe.title}}</p>
                 <div class="card__home-info">
-                    <p> por {{itens.author}}</p>
+                    <p> por {{recipe.author}}</p>
                 </div>                
             </div>
         </div>
+        </a>
     {% endfor %}
     </section>
     
